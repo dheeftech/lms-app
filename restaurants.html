@@ -349,71 +349,71 @@
     <script>
         initFoodScene();
         
-        // Menu data for each restaurant
+        // Menu data for each restaurant with real images
         const pizzaMenu = [
-            { name: "Margherita Pizza", description: "Fresh tomatoes, mozzarella, basil", price: 14.99, image: "🍕", category: "Popular" },
-            { name: "Pepperoni Pizza", description: "Classic pepperoni with extra cheese", price: 16.99, image: "🍕", category: "Popular" },
-            { name: "BBQ Chicken Pizza", description: "Grilled chicken, BBQ sauce, red onions", price: 17.99, image: "🍕", category: "Main Course" },
-            { name: "Garlic Breadsticks", description: "Warm breadsticks with garlic butter", price: 6.99, image: "🥖", category: "Sides" },
-            { name: "Caesar Salad", description: "Crisp romaine, parmesan, croutons", price: 8.99, image: "🥗", category: "Sides" },
-            { name: "Tiramisu", description: "Classic Italian dessert", price: 7.99, image: "🍰", category: "Sides" },
-            { name: "Coca Cola", description: "Chilled soft drink", price: 2.99, image: "🥤", category: "Drinks" },
-            { name: "Italian Wine", description: "House red or white wine", price: 9.99, image: "🍷", category: "Drinks" }
+            { name: "Margherita Pizza", description: "Fresh tomatoes, mozzarella, basil", price: 14.99, image: "https://cdn.pixabay.com/photo/2017/12/09/08/18/pizza-3007395_1280.jpg", category: "Popular" },
+            { name: "Pepperoni Pizza", description: "Classic pepperoni with extra cheese", price: 16.99, image: "https://cdn.pixabay.com/photo/2016/01/19/17/28/pizza-1149259_1280.jpg", category: "Popular" },
+            { name: "BBQ Chicken Pizza", description: "Grilled chicken, BBQ sauce, red onions", price: 17.99, image: "https://cdn.pixabay.com/photo/2016/02/20/18/57/chicken-pizza-1211255_1280.jpg", category: "Main Course" },
+            { name: "Garlic Breadsticks", description: "Warm breadsticks with garlic butter", price: 6.99, image: "https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_1280.jpg", category: "Sides" },
+            { name: "Caesar Salad", description: "Crisp romaine, parmesan, croutons", price: 8.99, image: "https://cdn.pixabay.com/photo/2016/03/05/20/11/salad-1238248_1280.jpg", category: "Sides" },
+            { name: "Tiramisu", description: "Classic Italian dessert", price: 7.99, image: "https://cdn.pixabay.com/photo/2016/11/22/18/23/tiramisu-1850140_1280.jpg", category: "Desserts" },
+            { name: "Coca Cola", description: "Chilled soft drink", price: 2.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" },
+            { name: "Italian Wine", description: "House red or white wine", price: 9.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" }
         ];
         
         const burgerMenu = [
-            { name: "Classic Burger", description: "Beef patty, lettuce, tomato, special sauce", price: 12.99, image: "🍔", category: "Popular" },
-            { name: "Cheese Burger", description: "Double cheese with beef patty", price: 13.99, image: "🍔", category: "Popular" },
-            { name: "Bacon Deluxe", description: "Crispy bacon, cheddar, BBQ sauce", price: 15.99, image: "🍔", category: "Main Course" },
-            { name: "Chicken Sandwich", description: "Grilled chicken breast with mayo", price: 11.99, image: "🍗", category: "Main Course" },
-            { name: "French Fries", description: "Crispy golden fries", price: 4.99, image: "🍟", category: "Sides" },
-            { name: "Onion Rings", description: "Beer-battered onion rings", price: 5.99, image: "🧅", category: "Sides" },
-            { name: "Milkshake", description: "Chocolate, vanilla, or strawberry", price: 5.99, image: "🥤", category: "Drinks" },
-            { name: "Lemonade", description: "Fresh squeezed lemonade", price: 3.99, image: "🍋", category: "Drinks" }
+            { name: "Classic Burger", description: "Beef patty, lettuce, tomato, special sauce", price: 12.99, image: "https://cdn.pixabay.com/photo/2016/03/05/19/02/hamburger-1238246_1280.jpg", category: "Popular" },
+            { name: "Cheese Burger", description: "Double cheese with beef patty", price: 13.99, image: "https://cdn.pixabay.com/photo/2018/01/15/11/09/burger-3085766_1280.jpg", category: "Popular" },
+            { name: "Bacon Deluxe", description: "Crispy bacon, cheddar, BBQ sauce", price: 15.99, image: "https://cdn.pixabay.com/photo/2016/09/04/19/09/chicken-burger-1644199_1280.jpg", category: "Main Course" },
+            { name: "Chicken Sandwich", description: "Grilled chicken breast with mayo", price: 11.99, image: "https://cdn.pixabay.com/photo/2016/09/04/19/09/chicken-burger-1644199_1280.jpg", category: "Main Course" },
+            { name: "French Fries", description: "Crispy golden fries", price: 4.99, image: "https://cdn.pixabay.com/photo/2016/11/29/09/16/fries-1867143_1280.jpg", category: "Sides" },
+            { name: "Onion Rings", description: "Beer-battered onion rings", price: 5.99, image: "https://cdn.pixabay.com/photo/2016/08/20/19/03/onion-rings-1608858_1280.jpg", category: "Sides" },
+            { name: "Milkshake", description: "Chocolate, vanilla, or strawberry", price: 5.99, image: "https://cdn.pixabay.com/photo/2017/08/24/13/09/shake-2675941_1280.jpg", category: "Drinks" },
+            { name: "Lemonade", description: "Fresh squeezed lemonade", price: 3.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" }
         ];
         
         const sushiMenu = [
-            { name: "California Roll", description: "Crab, avocado, cucumber", price: 8.99, image: "🍣", category: "Popular" },
-            { name: "Spicy Tuna Roll", description: "Fresh tuna with spicy mayo", price: 9.99, image: "🍣", category: "Popular" },
-            { name: "Dragon Roll", description: "Eel, cucumber, topped with avocado", price: 14.99, image: "🍱", category: "Main Course" },
-            { name: "Salmon Nigiri", description: "Fresh salmon over rice (2 pcs)", price: 7.99, image: "🐟", category: "Main Course" },
-            { name: "Edamame", description: "Steamed soybeans with sea salt", price: 4.99, image: "🫘", category: "Sides" },
-            { name: "Miso Soup", description: "Traditional Japanese soup", price: 3.99, image: "🍲", category: "Sides" },
-            { name: "Green Tea", description: "Hot Japanese green tea", price: 2.99, image: "🍵", category: "Drinks" },
-            { name: "Sake", description: "Premium Japanese rice wine", price: 8.99, image: "🍶", category: "Drinks" }
+            { name: "California Roll", description: "Crab, avocado, cucumber", price: 8.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/00/sushi-1866545_1280.jpg", category: "Popular" },
+            { name: "Spicy Tuna Roll", description: "Fresh tuna with spicy mayo", price: 9.99, image: "https://cdn.pixabay.com/photo/2016/11/29/03/59/sushi-1866544_1280.jpg", category: "Popular" },
+            { name: "Dragon Roll", description: "Eel, cucumber, topped with avocado", price: 14.99, image: "https://cdn.pixabay.com/photo/2016/11/29/03/59/sushi-1866543_1280.jpg", category: "Main Course" },
+            { name: "Salmon Nigiri", description: "Fresh salmon over rice (2 pcs)", price: 7.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/01/sushi-1866547_1280.jpg", category: "Main Course" },
+            { name: "Edamame", description: "Steamed soybeans with sea salt", price: 4.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/02/edamame-1866550_1280.jpg", category: "Sides" },
+            { name: "Miso Soup", description: "Traditional Japanese soup", price: 3.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/02/miso-soup-1866549_1280.jpg", category: "Sides" },
+            { name: "Green Tea", description: "Hot Japanese green tea", price: 2.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/02/ice-cream-1866551_1280.jpg", category: "Drinks" },
+            { name: "Sake", description: "Premium Japanese rice wine", price: 8.99, image: "https://cdn.pixabay.com/photo/2016/11/29/04/02/ice-cream-1866551_1280.jpg", category: "Drinks" }
         ];
         
         const tacoMenu = [
-            { name: "Beef Tacos", description: "Seasoned beef, lettuce, cheese, salsa (3 pcs)", price: 10.99, image: "🌮", category: "Popular" },
-            { name: "Chicken Tacos", description: "Grilled chicken, pico de gallo, lime (3 pcs)", price: 9.99, image: "🌮", category: "Popular" },
-            { name: "Fish Tacos", description: "Baja fish, cabbage slaw, chipotle mayo (3 pcs)", price: 12.99, image: "🐟", category: "Main Course" },
-            { name: "Burrito Bowl", description: "Rice, beans, choice of protein, toppings", price: 11.99, image: "🍚", category: "Main Course" },
-            { name: "Nachos", description: "Tortilla chips, cheese, jalapeños, sour cream", price: 8.99, image: "🧀", category: "Sides" },
-            { name: "Churros", description: "Fried dough with cinnamon sugar (4 pcs)", price: 5.99, image: "🍩", category: "Sides" },
-            { name: "Horchata", description: "Traditional rice cinnamon drink", price: 3.99, image: "🥛", category: "Drinks" },
-            { name: "Margarita", description: "Classic lime margarita", price: 8.99, image: "🍹", category: "Drinks" }
+            { name: "Beef Tacos", description: "Seasoned beef, lettuce, cheese, salsa (3 pcs)", price: 10.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Popular" },
+            { name: "Chicken Tacos", description: "Grilled chicken, pico de gallo, lime (3 pcs)", price: 9.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Popular" },
+            { name: "Fish Tacos", description: "Baja fish, cabbage slaw, chipotle mayo (3 pcs)", price: 12.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Main Course" },
+            { name: "Burrito Bowl", description: "Rice, beans, choice of protein, toppings", price: 11.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Main Course" },
+            { name: "Nachos", description: "Tortilla chips, cheese, jalapeños, sour cream", price: 8.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Sides" },
+            { name: "Churros", description: "Fried dough with cinnamon sugar (4 pcs)", price: 5.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Desserts" },
+            { name: "Horchata", description: "Traditional rice cinnamon drink", price: 3.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" },
+            { name: "Margarita", description: "Classic lime margarita", price: 8.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" }
         ];
         
         const curryMenu = [
-            { name: "Butter Chicken", description: "Creamy tomato curry with tender chicken", price: 15.99, image: "🍛", category: "Popular" },
-            { name: "Lamb Vindaloo", description: "Spicy lamb curry with potatoes", price: 17.99, image: "🍖", category: "Popular" },
-            { name: "Palak Paneer", description: "Spinach curry with Indian cottage cheese", price: 14.99, image: "🥬", category: "Main Course" },
-            { name: "Chicken Tikka Masala", description: "Grilled chicken in creamy masala sauce", price: 16.99, image: "🍗", category: "Main Course" },
-            { name: "Garlic Naan", description: "Fresh baked naan with garlic butter", price: 3.99, image: "🫓", category: "Sides" },
-            { name: "Samosas", description: "Crispy pastry with spiced potatoes (2 pcs)", price: 5.99, image: "🥟", category: "Sides" },
-            { name: "Mango Lassi", description: "Sweet yogurt mango drink", price: 4.99, image: "🥭", category: "Drinks" },
-            { name: "Chai Tea", description: "Spiced Indian tea with milk", price: 3.99, image: "☕", category: "Drinks" }
+            { name: "Butter Chicken", description: "Creamy tomato curry with tender chicken", price: 15.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Popular" },
+            { name: "Lamb Vindaloo", description: "Spicy lamb curry with potatoes", price: 17.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Popular" },
+            { name: "Palak Paneer", description: "Spinach curry with Indian cottage cheese", price: 14.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Main Course" },
+            { name: "Chicken Tikka Masala", description: "Grilled chicken in creamy masala sauce", price: 16.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Main Course" },
+            { name: "Garlic Naan", description: "Fresh baked naan with garlic butter", price: 3.99, image: "https://cdn.pixabay.com/photo/2017/01/11/11/33/cake-1971552_1280.jpg", category: "Sides" },
+            { name: "Samosas", description: "Crispy pastry with spiced potatoes (2 pcs)", price: 5.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Sides" },
+            { name: "Mango Lassi", description: "Sweet yogurt mango drink", price: 4.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" },
+            { name: "Chai Tea", description: "Spiced Indian tea with milk", price: 3.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" }
         ];
         
         const saladMenu = [
-            { name: "Greek Salad", description: "Cucumber, tomato, feta, olives", price: 11.99, image: "🥗", category: "Popular" },
-            { name: "Caesar Salad", description: "Romaine, parmesan, croutons, Caesar dressing", price: 10.99, image: "🥬", category: "Popular" },
-            { name: "Buddha Bowl", description: "Quinoa, roasted veggies, tahini dressing", price: 13.99, image: "🍲", category: "Main Course" },
-            { name: "Grilled Chicken Salad", description: "Mixed greens, grilled chicken, balsamic", price: 12.99, image: "🍗", category: "Main Course" },
-            { name: "Fresh Fruit Cup", description: "Seasonal fresh fruit mix", price: 5.99, image: "🍓", category: "Sides" },
-            { name: "Hummus & Veggies", description: "House hummus with carrot and celery sticks", price: 6.99, image: "🥕", category: "Sides" },
-            { name: "Green Smoothie", description: "Spinach, apple, banana, ginger", price: 6.99, image: "🥤", category: "Drinks" },
-            { name: "Kombucha", description: "Probiotic fermented tea", price: 4.99, image: "🍵", category: "Drinks" }
+            { name: "Greek Salad", description: "Cucumber, tomato, feta, olives", price: 11.99, image: "https://cdn.pixabay.com/photo/2016/03/05/20/11/salad-1238248_1280.jpg", category: "Popular" },
+            { name: "Caesar Salad", description: "Romaine, parmesan, croutons, Caesar dressing", price: 10.99, image: "https://cdn.pixabay.com/photo/2016/03/05/20/11/salad-1238248_1280.jpg", category: "Popular" },
+            { name: "Buddha Bowl", description: "Quinoa, roasted veggies, tahini dressing", price: 13.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Main Course" },
+            { name: "Grilled Chicken Salad", description: "Mixed greens, grilled chicken, balsamic", price: 12.99, image: "https://cdn.pixabay.com/photo/2016/09/04/19/09/chicken-burger-1644199_1280.jpg", category: "Main Course" },
+            { name: "Fresh Fruit Cup", description: "Seasonal fresh fruit mix", price: 5.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Sides" },
+            { name: "Hummus & Veggies", description: "House hummus with carrot and celery sticks", price: 6.99, image: "https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg", category: "Sides" },
+            { name: "Green Smoothie", description: "Spinach, apple, banana, ginger", price: 6.99, image: "https://cdn.pixabay.com/photo/2017/08/24/13/09/shake-2675941_1280.jpg", category: "Drinks" },
+            { name: "Kombucha", description: "Probiotic fermented tea", price: 4.99, image: "https://cdn.pixabay.com/photo/2016/11/22/19/15/drinks-1850138_1280.jpg", category: "Drinks" }
         ];
         
         // Open menu modal function
@@ -431,7 +431,7 @@
                 menuItem.style.animationDelay = `${index * 0.05}s`;
                 
                 menuItem.innerHTML = `
-                    <div class="text-5xl flex-shrink-0">${item.image}</div>
+                    <img src="${item.image}" alt="${item.name}" class="w-20 h-20 object-cover rounded-lg flex-shrink-0" onerror="this.src='https://cdn.pixabay.com/photo/2016/03/27/20/19/tacos-1285033_1280.jpg'">
                     <div class="flex-1">
                         <h4 class="font-bold text-lg text-white">${item.name}</h4>
                         <p class="text-gray-400 text-sm">${item.description}</p>
