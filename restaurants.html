@@ -114,7 +114,7 @@
                             <span class="mx-2">•</span>
                             <span>$$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Pizza Palace', 'Italian • Pizza • Pasta', pizzaMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -141,7 +141,7 @@
                             <span class="mx-2">•</span>
                             <span>$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Burger House', 'American • Burgers • Fast Food', burgerMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -168,7 +168,7 @@
                             <span class="mx-2">•</span>
                             <span>$$$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Sushi Master', 'Japanese • Sushi • Asian', sushiMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -195,7 +195,7 @@
                             <span class="mx-2">•</span>
                             <span>$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Taco Fiesta', 'Mexican • Tacos • Burritos', tacoMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -222,7 +222,7 @@
                             <span class="mx-2">•</span>
                             <span>$$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Curry Kingdom', 'Indian • Curry • Vegetarian', curryMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -249,7 +249,7 @@
                             <span class="mx-2">•</span>
                             <span>$$</span>
                         </div>
-                        <button class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
+                        <button onclick="openMenuModal('Green Bowl', 'Healthy • Salads • Vegan', saladMenu)" class="w-full mt-4 bg-orange-500 hover:bg-orange-600 text-white py-3 rounded-full font-bold transition-all transform hover:scale-105">
                             View Menu
                         </button>
                     </div>
@@ -304,9 +304,191 @@
         </div>
     </footer>
 
+    <!-- Menu Modal -->
+    <div id="menuModal" class="fixed inset-0 z-[100] hidden">
+        <!-- Backdrop -->
+        <div class="absolute inset-0 bg-black/80 backdrop-blur-sm" onclick="closeMenuModal()"></div>
+        
+        <!-- Modal Content -->
+        <div class="relative min-h-screen flex items-center justify-center p-4">
+            <div class="bg-gray-800 rounded-3xl max-w-4xl w-full max-h-[90vh] overflow-hidden shadow-2xl shadow-orange-500/20 animate-scale-in">
+                <!-- Modal Header -->
+                <div class="relative h-48 bg-gradient-to-r from-orange-500 to-red-500">
+                    <button onclick="closeMenuModal()" class="absolute top-4 right-4 bg-black/30 hover:bg-black/50 text-white w-10 h-10 rounded-full flex items-center justify-center transition-all transform hover:scale-110">
+                        <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M6 18L18 6M6 6l12 12"></path>
+                        </svg>
+                    </button>
+                    <div class="absolute bottom-4 left-6">
+                        <h2 id="modalRestaurantName" class="text-3xl font-bold text-white">Restaurant Name</h2>
+                        <p id="modalRestaurantCuisine" class="text-orange-200">Cuisine Type</p>
+                    </div>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="p-6 overflow-y-auto max-h-[calc(90vh-12rem)]">
+                    <!-- Menu Categories -->
+                    <div class="flex gap-4 mb-6 overflow-x-auto pb-2">
+                        <button class="menu-category-btn active bg-orange-500 text-white px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all">All Items</button>
+                        <button class="menu-category-btn bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all">Popular</button>
+                        <button class="menu-category-btn bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all">Main Course</button>
+                        <button class="menu-category-btn bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all">Sides</button>
+                        <button class="menu-category-btn bg-gray-700 hover:bg-gray-600 text-white px-6 py-2 rounded-full font-semibold whitespace-nowrap transition-all">Drinks</button>
+                    </div>
+                    
+                    <!-- Menu Items Grid -->
+                    <div id="menuItemsGrid" class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                        <!-- Menu items will be dynamically inserted here -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <script src="main.js"></script>
     <script>
         initFoodScene();
+        
+        // Menu data for each restaurant
+        const pizzaMenu = [
+            { name: "Margherita Pizza", description: "Fresh tomatoes, mozzarella, basil", price: 14.99, image: "🍕", category: "Popular" },
+            { name: "Pepperoni Pizza", description: "Classic pepperoni with extra cheese", price: 16.99, image: "🍕", category: "Popular" },
+            { name: "BBQ Chicken Pizza", description: "Grilled chicken, BBQ sauce, red onions", price: 17.99, image: "🍕", category: "Main Course" },
+            { name: "Garlic Breadsticks", description: "Warm breadsticks with garlic butter", price: 6.99, image: "🥖", category: "Sides" },
+            { name: "Caesar Salad", description: "Crisp romaine, parmesan, croutons", price: 8.99, image: "🥗", category: "Sides" },
+            { name: "Tiramisu", description: "Classic Italian dessert", price: 7.99, image: "🍰", category: "Sides" },
+            { name: "Coca Cola", description: "Chilled soft drink", price: 2.99, image: "🥤", category: "Drinks" },
+            { name: "Italian Wine", description: "House red or white wine", price: 9.99, image: "🍷", category: "Drinks" }
+        ];
+        
+        const burgerMenu = [
+            { name: "Classic Burger", description: "Beef patty, lettuce, tomato, special sauce", price: 12.99, image: "🍔", category: "Popular" },
+            { name: "Cheese Burger", description: "Double cheese with beef patty", price: 13.99, image: "🍔", category: "Popular" },
+            { name: "Bacon Deluxe", description: "Crispy bacon, cheddar, BBQ sauce", price: 15.99, image: "🍔", category: "Main Course" },
+            { name: "Chicken Sandwich", description: "Grilled chicken breast with mayo", price: 11.99, image: "🍗", category: "Main Course" },
+            { name: "French Fries", description: "Crispy golden fries", price: 4.99, image: "🍟", category: "Sides" },
+            { name: "Onion Rings", description: "Beer-battered onion rings", price: 5.99, image: "🧅", category: "Sides" },
+            { name: "Milkshake", description: "Chocolate, vanilla, or strawberry", price: 5.99, image: "🥤", category: "Drinks" },
+            { name: "Lemonade", description: "Fresh squeezed lemonade", price: 3.99, image: "🍋", category: "Drinks" }
+        ];
+        
+        const sushiMenu = [
+            { name: "California Roll", description: "Crab, avocado, cucumber", price: 8.99, image: "🍣", category: "Popular" },
+            { name: "Spicy Tuna Roll", description: "Fresh tuna with spicy mayo", price: 9.99, image: "🍣", category: "Popular" },
+            { name: "Dragon Roll", description: "Eel, cucumber, topped with avocado", price: 14.99, image: "🍱", category: "Main Course" },
+            { name: "Salmon Nigiri", description: "Fresh salmon over rice (2 pcs)", price: 7.99, image: "🐟", category: "Main Course" },
+            { name: "Edamame", description: "Steamed soybeans with sea salt", price: 4.99, image: "🫘", category: "Sides" },
+            { name: "Miso Soup", description: "Traditional Japanese soup", price: 3.99, image: "🍲", category: "Sides" },
+            { name: "Green Tea", description: "Hot Japanese green tea", price: 2.99, image: "🍵", category: "Drinks" },
+            { name: "Sake", description: "Premium Japanese rice wine", price: 8.99, image: "🍶", category: "Drinks" }
+        ];
+        
+        const tacoMenu = [
+            { name: "Beef Tacos", description: "Seasoned beef, lettuce, cheese, salsa (3 pcs)", price: 10.99, image: "🌮", category: "Popular" },
+            { name: "Chicken Tacos", description: "Grilled chicken, pico de gallo, lime (3 pcs)", price: 9.99, image: "🌮", category: "Popular" },
+            { name: "Fish Tacos", description: "Baja fish, cabbage slaw, chipotle mayo (3 pcs)", price: 12.99, image: "🐟", category: "Main Course" },
+            { name: "Burrito Bowl", description: "Rice, beans, choice of protein, toppings", price: 11.99, image: "🍚", category: "Main Course" },
+            { name: "Nachos", description: "Tortilla chips, cheese, jalapeños, sour cream", price: 8.99, image: "🧀", category: "Sides" },
+            { name: "Churros", description: "Fried dough with cinnamon sugar (4 pcs)", price: 5.99, image: "🍩", category: "Sides" },
+            { name: "Horchata", description: "Traditional rice cinnamon drink", price: 3.99, image: "🥛", category: "Drinks" },
+            { name: "Margarita", description: "Classic lime margarita", price: 8.99, image: "🍹", category: "Drinks" }
+        ];
+        
+        const curryMenu = [
+            { name: "Butter Chicken", description: "Creamy tomato curry with tender chicken", price: 15.99, image: "🍛", category: "Popular" },
+            { name: "Lamb Vindaloo", description: "Spicy lamb curry with potatoes", price: 17.99, image: "🍖", category: "Popular" },
+            { name: "Palak Paneer", description: "Spinach curry with Indian cottage cheese", price: 14.99, image: "🥬", category: "Main Course" },
+            { name: "Chicken Tikka Masala", description: "Grilled chicken in creamy masala sauce", price: 16.99, image: "🍗", category: "Main Course" },
+            { name: "Garlic Naan", description: "Fresh baked naan with garlic butter", price: 3.99, image: "🫓", category: "Sides" },
+            { name: "Samosas", description: "Crispy pastry with spiced potatoes (2 pcs)", price: 5.99, image: "🥟", category: "Sides" },
+            { name: "Mango Lassi", description: "Sweet yogurt mango drink", price: 4.99, image: "🥭", category: "Drinks" },
+            { name: "Chai Tea", description: "Spiced Indian tea with milk", price: 3.99, image: "☕", category: "Drinks" }
+        ];
+        
+        const saladMenu = [
+            { name: "Greek Salad", description: "Cucumber, tomato, feta, olives", price: 11.99, image: "🥗", category: "Popular" },
+            { name: "Caesar Salad", description: "Romaine, parmesan, croutons, Caesar dressing", price: 10.99, image: "🥬", category: "Popular" },
+            { name: "Buddha Bowl", description: "Quinoa, roasted veggies, tahini dressing", price: 13.99, image: "🍲", category: "Main Course" },
+            { name: "Grilled Chicken Salad", description: "Mixed greens, grilled chicken, balsamic", price: 12.99, image: "🍗", category: "Main Course" },
+            { name: "Fresh Fruit Cup", description: "Seasonal fresh fruit mix", price: 5.99, image: "🍓", category: "Sides" },
+            { name: "Hummus & Veggies", description: "House hummus with carrot and celery sticks", price: 6.99, image: "🥕", category: "Sides" },
+            { name: "Green Smoothie", description: "Spinach, apple, banana, ginger", price: 6.99, image: "🥤", category: "Drinks" },
+            { name: "Kombucha", description: "Probiotic fermented tea", price: 4.99, image: "🍵", category: "Drinks" }
+        ];
+        
+        // Open menu modal function
+        function openMenuModal(restaurantName, cuisineType, menuData) {
+            const modal = document.getElementById('menuModal');
+            document.getElementById('modalRestaurantName').textContent = restaurantName;
+            document.getElementById('modalRestaurantCuisine').textContent = cuisineType;
+            
+            const menuGrid = document.getElementById('menuItemsGrid');
+            menuGrid.innerHTML = '';
+            
+            menuData.forEach((item, index) => {
+                const menuItem = document.createElement('div');
+                menuItem.className = 'bg-gray-700 rounded-xl p-4 flex items-center gap-4 transform transition-all hover:scale-105 hover:shadow-lg hover:shadow-orange-500/20 animate-fade-in-up';
+                menuItem.style.animationDelay = `${index * 0.05}s`;
+                
+                menuItem.innerHTML = `
+                    <div class="text-5xl flex-shrink-0">${item.image}</div>
+                    <div class="flex-1">
+                        <h4 class="font-bold text-lg text-white">${item.name}</h4>
+                        <p class="text-gray-400 text-sm">${item.description}</p>
+                        <div class="flex items-center justify-between mt-2">
+                            <span class="text-orange-500 font-bold text-xl">$${item.price.toFixed(2)}</span>
+                            <button onclick="addToCart('${item.name}', ${item.price})" class="bg-orange-500 hover:bg-orange-600 text-white px-4 py-2 rounded-full text-sm font-semibold transition-all transform hover:scale-105">
+                                Add to Cart
+                            </button>
+                        </div>
+                    </div>
+                `;
+                
+                menuGrid.appendChild(menuItem);
+            });
+            
+            modal.classList.remove('hidden');
+            document.body.style.overflow = 'hidden';
+        }
+        
+        // Close menu modal function
+        function closeMenuModal() {
+            const modal = document.getElementById('menuModal');
+            modal.classList.add('hidden');
+            document.body.style.overflow = 'auto';
+        }
+        
+        // Add to cart function
+        function addToCart(itemName, price) {
+            // Show a simple notification
+            const notification = document.createElement('div');
+            notification.className = 'fixed bottom-4 right-4 bg-green-500 text-white px-6 py-3 rounded-full font-semibold shadow-lg z-[150] animate-fade-in-up';
+            notification.innerHTML = `✓ ${itemName} added to cart! ($${price.toFixed(2)})`;
+            document.body.appendChild(notification);
+            
+            setTimeout(() => {
+                notification.remove();
+            }, 3000);
+        }
+        
+        // Category filter functionality
+        document.querySelectorAll('.menu-category-btn').forEach(btn => {
+            btn.addEventListener('click', function() {
+                document.querySelectorAll('.menu-category-btn').forEach(b => {
+                    b.classList.remove('active', 'bg-orange-500', 'text-white');
+                    b.classList.add('bg-gray-700');
+                });
+                this.classList.remove('bg-gray-700');
+                this.classList.add('active', 'bg-orange-500', 'text-white');
+            });
+        });
+        
+        // Close modal on Escape key
+        document.addEventListener('keydown', function(e) {
+            if (e.key === 'Escape') {
+                closeMenuModal();
+            }
+        });
     </script>
 </body>
 </html>
