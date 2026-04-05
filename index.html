@@ -1,0 +1,204 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedEats - Home | Premium Food Delivery</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        .nav-active { color: #f97316; }
+    </style>
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-bold text-orange-500 animate-pulse-slow">SpeedEats</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="nav-active px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Home</a>
+                        <a href="restaurants.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Restaurants</a>
+                        <a href="drivers.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Become a Driver</a>
+                        <a href="tracking.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Track Order</a>
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Background -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden">
+        <div id="hero-canvas" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-gray-900/60 to-orange-900/30 z-10"></div>
+        
+        <div class="relative z-20 text-center px-4 max-w-5xl mx-auto">
+            <h1 class="text-6xl md:text-8xl font-black mb-6 animate-float">
+                <span class="text-white">Delicious Food</span>
+                <br>
+                <span class="text-orange-500">Delivered Fast</span>
+            </h1>
+            <p class="text-xl md:text-2xl text-gray-300 mb-10 max-w-3xl mx-auto animate-fade-in-up">
+                Experience the future of food delivery with our lightning-fast service and real-time tracking
+            </p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center animate-fade-in-up animation-delay-300">
+                <a href="restaurants.html" class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50">
+                    Order Now
+                </a>
+                <a href="drivers.html" class="border-2 border-white hover:border-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:bg-white/10">
+                    Become a Driver
+                </a>
+            </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 transform -translate-x-1/2 z-20 animate-bounce">
+            <svg class="w-8 h-8 text-orange-500" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+            </svg>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section class="py-24 bg-gray-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Why Choose <span class="text-orange-500">SpeedEats</span>?</h2>
+                <p class="text-xl text-gray-400">We're revolutionizing food delivery</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">⚡</div>
+                    <h3 class="text-2xl font-bold mb-3">Lightning Fast</h3>
+                    <p class="text-gray-400">Average delivery time under 30 minutes with our optimized routing system</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">📍</div>
+                    <h3 class="text-2xl font-bold mb-3">Real-Time Tracking</h3>
+                    <p class="text-gray-400">Watch your driver approach in real-time with our advanced GPS tracking</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">🍕</div>
+                    <h3 class="text-2xl font-bold mb-3">Top Restaurants</h3>
+                    <p class="text-gray-400">Partnered with 500+ premium restaurants in your area</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">💰</div>
+                    <h3 class="text-2xl font-bold mb-3">Best Prices</h3>
+                    <p class="text-gray-400">Competitive pricing with no hidden fees or surge charges</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">🛡️</div>
+                    <h3 class="text-2xl font-bold mb-3">Contactless Delivery</h3>
+                    <p class="text-gray-400">Safe and secure contactless delivery options available</p>
+                </div>
+                
+                <div class="feature-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20">
+                    <div class="text-orange-500 text-5xl mb-4">🎁</div>
+                    <h3 class="text-2xl font-bold mb-3">Rewards Program</h3>
+                    <p class="text-gray-400">Earn points on every order and get exclusive discounts</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="py-20 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-2 md:grid-cols-4 gap-8 text-center">
+                <div class="stat-item">
+                    <div class="text-5xl font-black mb-2">500+</div>
+                    <div class="text-xl opacity-90">Restaurants</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-5xl font-black mb-2">1000+</div>
+                    <div class="text-xl opacity-90">Drivers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-5xl font-black mb-2">50K+</div>
+                    <div class="text-xl opacity-90">Happy Customers</div>
+                </div>
+                <div class="stat-item">
+                    <div class="text-5xl font-black mb-2">30min</div>
+                    <div class="text-xl opacity-90">Avg Delivery</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gray-900 relative overflow-hidden">
+        <div class="absolute inset-0 opacity-10">
+            <div id="particles-canvas" class="w-full h-full"></div>
+        </div>
+        <div class="max-w-4xl mx-auto text-center relative z-10 px-4">
+            <h2 class="text-5xl font-bold mb-6">Ready to Get Started?</h2>
+            <p class="text-xl text-gray-400 mb-10">Join thousands of satisfied customers enjoying delicious food delivered to their doorstep</p>
+            <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                <a href="restaurants.html" class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105">
+                    Browse Restaurants
+                </a>
+                <a href="drivers.html" class="border-2 border-orange-500 hover:bg-orange-500 text-orange-500 hover:text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105">
+                    Drive With Us
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4">SpeedEats</h3>
+                    <p class="text-gray-400">The fastest way to get your favorite food delivered.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Safety</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📸</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2024 SpeedEats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        // Initialize hero scene
+        initHeroScene();
+        initParticles();
+    </script>
+</body>
+</html>
