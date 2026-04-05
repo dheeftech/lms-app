@@ -1,0 +1,332 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedEats - Become a Driver | Earn Money</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-bold text-orange-500 animate-pulse-slow">SpeedEats</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Home</a>
+                        <a href="restaurants.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Restaurants</a>
+                        <a href="drivers.html" class="nav-active px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Become a Driver</a>
+                        <a href="tracking.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Track Order</a>
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with 3D Motorcycle -->
+    <section class="relative min-h-screen flex items-center justify-center overflow-hidden pt-20">
+        <div id="driver-canvas" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/80 via-orange-900/40 to-gray-900/80 z-10"></div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+            <div class="animate-fade-in-left">
+                <h1 class="text-5xl md:text-7xl font-black mb-6">
+                    <span class="text-white">Drive With</span>
+                    <br>
+                    <span class="text-orange-500">SpeedEats</span>
+                </h1>
+                <p class="text-xl text-gray-300 mb-8">
+                    Earn money on your schedule. Deliver food from your favorite restaurants and be your own boss.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4">
+                    <button class="bg-orange-500 hover:bg-orange-600 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:shadow-lg hover:shadow-orange-500/50">
+                        Sign Up Now
+                    </button>
+                    <button class="border-2 border-white hover:border-orange-500 text-white px-10 py-4 rounded-full font-bold text-lg transition-all transform hover:scale-105 hover:bg-white/10">
+                        Learn More
+                    </button>
+                </div>
+                
+                <!-- Quick Stats -->
+                <div class="grid grid-cols-3 gap-6 mt-12">
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-orange-500">$25/hr</div>
+                        <div class="text-gray-400">Avg Earnings</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-orange-500">Flexible</div>
+                        <div class="text-gray-400">Schedule</div>
+                    </div>
+                    <div class="text-center">
+                        <div class="text-3xl font-bold text-orange-500">Instant</div>
+                        <div class="text-gray-400">Payments</div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="hidden lg:block animate-float">
+                <!-- 3D Scene handles the motorcycle visualization -->
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section class="py-24 bg-gray-800 relative">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Why Drive With <span class="text-orange-500">SpeedEats</span>?</h2>
+                <p class="text-xl text-gray-400">We take care of our drivers</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+                <div class="benefit-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 text-center">
+                    <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="text-orange-500 text-4xl">💰</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Competitive Pay</h3>
+                    <p class="text-gray-400">Earn up to $25/hour plus tips and bonuses</p>
+                </div>
+                
+                <div class="benefit-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 text-center">
+                    <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="text-orange-500 text-4xl">🕐</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Flexible Schedule</h3>
+                    <p class="text-gray-400">Work when you want, no minimum hours</p>
+                </div>
+                
+                <div class="benefit-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 text-center">
+                    <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="text-orange-500 text-4xl">⚡</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Instant Pay</h3>
+                    <p class="text-gray-400">Cash out your earnings instantly anytime</p>
+                </div>
+                
+                <div class="benefit-card bg-gray-900 p-8 rounded-2xl transform transition-all hover:scale-105 hover:shadow-xl hover:shadow-orange-500/20 text-center">
+                    <div class="w-20 h-20 bg-orange-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
+                        <div class="text-orange-500 text-4xl">🎁</div>
+                    </div>
+                    <h3 class="text-2xl font-bold mb-3">Weekly Bonuses</h3>
+                    <p class="text-gray-400">Earn extra with completion and referral bonuses</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How It Works -->
+    <section class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">How It <span class="text-orange-500">Works</span></h2>
+                <p class="text-xl text-gray-400">Start earning in 3 simple steps</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-12">
+                <div class="text-center relative">
+                    <div class="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-black">1</div>
+                    <h3 class="text-2xl font-bold mb-4">Sign Up</h3>
+                    <p class="text-gray-400 text-lg">Complete your application in minutes. All you need is a vehicle and smartphone.</p>
+                </div>
+                
+                <div class="text-center relative">
+                    <div class="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-black">2</div>
+                    <h3 class="text-2xl font-bold mb-4">Get Approved</h3>
+                    <p class="text-gray-400 text-lg">Pass a quick background check and attend an optional orientation session.</p>
+                </div>
+                
+                <div class="text-center relative">
+                    <div class="w-24 h-24 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-6 text-4xl font-black">3</div>
+                    <h3 class="text-2xl font-bold mb-4">Start Earning</h3>
+                    <p class="text-gray-400 text-lg">Log in, accept deliveries, and start making money immediately.</p>
+                </div>
+            </div>
+            
+            <!-- Connection Line -->
+            <div class="hidden md:block absolute top-1/2 left-0 w-full h-1 bg-gradient-to-r from-transparent via-orange-500 to-transparent opacity-30"></div>
+        </div>
+    </section>
+
+    <!-- Requirements Section -->
+    <section class="py-24 bg-gray-800">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Driver <span class="text-orange-500">Requirements</span></h2>
+                <p class="text-xl text-gray-400">What you'll need to get started</p>
+            </div>
+            
+            <div class="space-y-6">
+                <div class="requirement-item bg-gray-900 p-6 rounded-xl flex items-center gap-6 transform transition-all hover:scale-102 hover:shadow-lg hover:shadow-orange-500/10">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Valid Driver's License</h3>
+                        <p class="text-gray-400">Must have a current and valid driver's license</p>
+                    </div>
+                </div>
+                
+                <div class="requirement-item bg-gray-900 p-6 rounded-xl flex items-center gap-6 transform transition-all hover:scale-102 hover:shadow-lg hover:shadow-orange-500/10">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Vehicle Insurance</h3>
+                        <p class="text-gray-400">Current auto insurance in your name</p>
+                    </div>
+                </div>
+                
+                <div class="requirement-item bg-gray-900 p-6 rounded-xl flex items-center gap-6 transform transition-all hover:scale-102 hover:shadow-lg hover:shadow-orange-500/10">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Smartphone</h3>
+                        <p class="text-gray-400">iPhone or Android smartphone with data plan</p>
+                    </div>
+                </div>
+                
+                <div class="requirement-item bg-gray-900 p-6 rounded-xl flex items-center gap-6 transform transition-all hover:scale-102 hover:shadow-lg hover:shadow-orange-500/10">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Background Check</h3>
+                        <p class="text-gray-400">Pass a simple criminal background check</p>
+                    </div>
+                </div>
+                
+                <div class="requirement-item bg-gray-900 p-6 rounded-xl flex items-center gap-6 transform transition-all hover:scale-102 hover:shadow-lg hover:shadow-orange-500/10">
+                    <div class="w-16 h-16 bg-green-500/20 rounded-full flex items-center justify-center flex-shrink-0">
+                        <svg class="w-8 h-8 text-green-500" fill="currentColor" viewBox="0 0 20 20">
+                            <path fill-rule="evenodd" d="M16.707 5.293a1 1 0 010 1.414l-8 8a1 1 0 01-1.414 0l-4-4a1 1 0 011.414-1.414L8 12.586l7.293-7.293a1 1 0 011.414 0z" clip-rule="evenodd"/>
+                        </svg>
+                    </div>
+                    <div>
+                        <h3 class="text-xl font-bold mb-1">Minimum Age 18</h3>
+                        <p class="text-gray-400">Must be at least 18 years old to drive</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials -->
+    <section class="py-24 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-5xl font-bold mb-4">Driver <span class="text-orange-500">Stories</span></h2>
+                <p class="text-xl text-gray-400">Hear from our delivery partners</p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <div class="testimonial-card bg-gray-800 p-8 rounded-2xl transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">JD</div>
+                        <div>
+                            <h4 class="font-bold text-lg">John D.</h4>
+                            <p class="text-gray-400">Driving for 2 years</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"I love the flexibility! I can work around my school schedule and still make great money. The instant pay feature is a lifesaver."</p>
+                    <div class="mt-4 text-orange-500">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card bg-gray-800 p-8 rounded-2xl transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">SM</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Sarah M.</h4>
+                            <p class="text-gray-400">Driving for 1 year</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"Being my own boss is amazing. I choose when to work and the app makes it so easy to find deliveries near me."</p>
+                    <div class="mt-4 text-orange-500">★★★★★</div>
+                </div>
+                
+                <div class="testimonial-card bg-gray-800 p-8 rounded-2xl transform transition-all hover:scale-105">
+                    <div class="flex items-center mb-4">
+                        <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-2xl font-bold mr-4">MR</div>
+                        <div>
+                            <h4 class="font-bold text-lg">Mike R.</h4>
+                            <p class="text-gray-400">Driving for 3 years</p>
+                        </div>
+                    </div>
+                    <p class="text-gray-300 italic">"The best part is meeting new people and exploring the city. Plus, the bonuses really add up every week!"</p>
+                    <div class="mt-4 text-orange-500">★★★★★</div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-5xl font-bold mb-6">Ready to Start Earning?</h2>
+            <p class="text-xl mb-10 opacity-90">Join thousands of drivers making money with SpeedEats today</p>
+            <button class="bg-white text-orange-500 hover:bg-gray-100 px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 hover:shadow-lg">
+                Sign Up to Drive
+            </button>
+            <p class="mt-6 text-sm opacity-75">No commitment required. Start whenever you're ready.</p>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4">SpeedEats</h3>
+                    <p class="text-gray-400">The fastest way to get your favorite food delivered.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Safety</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📸</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2024 SpeedEats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        initDriverScene();
+    </script>
+</body>
+</html>

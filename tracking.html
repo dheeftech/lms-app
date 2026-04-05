@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>SpeedEats - Track Your Order</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body class="bg-gray-900 text-white overflow-x-hidden">
+    <!-- Navigation -->
+    <nav id="navbar" class="fixed top-0 w-full z-50 transition-all duration-300 bg-gray-900/80 backdrop-blur-md">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="flex items-center justify-between h-20">
+                <div class="flex-shrink-0">
+                    <a href="index.html" class="text-3xl font-bold text-orange-500 animate-pulse-slow">SpeedEats</a>
+                </div>
+                <div class="hidden md:block">
+                    <div class="ml-10 flex items-baseline space-x-8">
+                        <a href="index.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Home</a>
+                        <a href="restaurants.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Restaurants</a>
+                        <a href="drivers.html" class="px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Become a Driver</a>
+                        <a href="tracking.html" class="nav-active px-3 py-2 rounded-md text-lg font-medium transition-all hover:text-orange-400">Track Order</a>
+                        <a href="#" class="bg-orange-500 hover:bg-orange-600 px-6 py-2 rounded-full font-semibold transition-all transform hover:scale-105">Sign In</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section with Map -->
+    <section class="relative pt-32 pb-20 overflow-hidden">
+        <div id="map-canvas" class="absolute inset-0 z-0"></div>
+        <div class="absolute inset-0 bg-gradient-to-br from-gray-900/90 via-gray-900/70 to-orange-900/20 z-10"></div>
+        
+        <div class="relative z-20 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h1 class="text-5xl md:text-6xl font-black mb-6 text-center animate-float">
+                Track Your <span class="text-orange-500">Order</span>
+            </h1>
+            <p class="text-xl text-gray-300 mb-10 text-center max-w-2xl mx-auto animate-fade-in-up">
+                Real-time tracking from restaurant to your doorstep
+            </p>
+            
+            <!-- Order Search -->
+            <div class="max-w-xl mx-auto animate-fade-in-up animation-delay-300">
+                <div class="bg-gray-800 p-6 rounded-2xl shadow-xl">
+                    <label class="block text-sm font-medium text-gray-400 mb-2">Enter your order number</label>
+                    <div class="flex gap-4">
+                        <input type="text" placeholder="#SE-12345" class="flex-1 px-6 py-4 rounded-full bg-gray-900 border border-gray-700 focus:border-orange-500 focus:outline-none text-white placeholder-gray-500 text-lg">
+                        <button class="bg-orange-500 hover:bg-orange-600 px-8 py-4 rounded-full font-bold transition-all transform hover:scale-105 whitespace-nowrap">
+                            Track
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Active Order Demo -->
+    <section class="py-20 bg-gray-800">
+        <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-3xl font-bold mb-8 text-center">Sample Active Order</h2>
+            
+            <div class="bg-gray-900 rounded-3xl overflow-hidden shadow-2xl">
+                <!-- Order Header -->
+                <div class="bg-gradient-to-r from-orange-600 to-orange-500 p-6">
+                    <div class="flex justify-between items-center">
+                        <div>
+                            <h3 class="text-2xl font-bold">Order #SE-78432</h3>
+                            <p class="opacity-90">Placed at 7:32 PM</p>
+                        </div>
+                        <div class="bg-white/20 px-4 py-2 rounded-full">
+                            <span class="font-bold">Arriving in 12 min</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Progress Bar -->
+                <div class="p-8">
+                    <div class="relative">
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-full h-2 bg-gray-700 rounded-full"></div>
+                        <div class="absolute left-0 top-1/2 transform -translate-y-1/2 w-3/4 h-2 bg-orange-500 rounded-full transition-all duration-1000"></div>
+                        
+                        <div class="relative flex justify-between">
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">✓</div>
+                                <p class="text-sm font-medium">Order Confirmed</p>
+                                <p class="text-xs text-gray-400">7:32 PM</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-green-500 rounded-full flex items-center justify-center mx-auto mb-2">✓</div>
+                                <p class="text-sm font-medium">Preparing</p>
+                                <p class="text-xs text-gray-400">7:35 PM</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-orange-500 rounded-full flex items-center justify-center mx-auto mb-2 animate-pulse">🚗</div>
+                                <p class="text-sm font-medium text-orange-500">On the Way</p>
+                                <p class="text-xs text-gray-400">7:50 PM</p>
+                            </div>
+                            <div class="text-center">
+                                <div class="w-12 h-12 bg-gray-700 rounded-full flex items-center justify-center mx-auto mb-2">🏠</div>
+                                <p class="text-sm font-medium text-gray-400">Delivered</p>
+                                <p class="text-xs text-gray-400">--:--</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Driver Info -->
+                <div class="border-t border-gray-700 p-8">
+                    <div class="flex items-center justify-between">
+                        <div class="flex items-center gap-4">
+                            <div class="w-16 h-16 bg-orange-500 rounded-full flex items-center justify-center text-2xl font-bold">MJ</div>
+                            <div>
+                                <h4 class="text-xl font-bold">Michael Johnson</h4>
+                                <p class="text-gray-400">Your Delivery Driver</p>
+                                <div class="flex items-center mt-1">
+                                    <span class="text-yellow-500">★★★★★</span>
+                                    <span class="text-gray-400 ml-2 text-sm">(487 deliveries)</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="flex gap-4">
+                            <button class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-full font-medium transition-all">
+                                📞 Call
+                            </button>
+                            <button class="bg-gray-700 hover:bg-gray-600 px-6 py-3 rounded-full font-medium transition-all">
+                                💬 Message
+                            </button>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Order Details -->
+                <div class="border-t border-gray-700 p-8">
+                    <h4 class="text-xl font-bold mb-4">Order Details</h4>
+                    <div class="space-y-4">
+                        <div class="flex justify-between items-center py-3 border-b border-gray-800">
+                            <div>
+                                <p class="font-medium">2x Margherita Pizza</p>
+                                <p class="text-sm text-gray-400">Extra cheese, thin crust</p>
+                            </div>
+                            <p class="font-medium">$32.00</p>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-800">
+                            <div>
+                                <p class="font-medium">1x Caesar Salad</p>
+                                <p class="text-sm text-gray-400">No croutons</p>
+                            </div>
+                            <p class="font-medium">$12.00</p>
+                        </div>
+                        <div class="flex justify-between items-center py-3 border-b border-gray-800">
+                            <div>
+                                <p class="font-medium">2x Garlic Bread</p>
+                            </div>
+                            <p class="font-medium">$8.00</p>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-6 space-y-2">
+                        <div class="flex justify-between text-gray-400">
+                            <span>Subtotal</span>
+                            <span>$52.00</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span>Delivery Fee</span>
+                            <span>$3.99</span>
+                        </div>
+                        <div class="flex justify-between text-gray-400">
+                            <span>Service Fee</span>
+                            <span>$2.50</span>
+                        </div>
+                        <div class="flex justify-between text-xl font-bold pt-4 border-t border-gray-700">
+                            <span>Total</span>
+                            <span class="text-orange-500">$58.49</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Delivery Address -->
+                <div class="border-t border-gray-700 p-8 bg-gray-800/50">
+                    <div class="flex items-start gap-4">
+                        <div class="text-3xl">📍</div>
+                        <div>
+                            <h4 class="font-bold mb-1">Delivery Address</h4>
+                            <p class="text-gray-400">123 Main Street, Apt 4B</p>
+                            <p class="text-gray-400">New York, NY 10001</p>
+                            <button class="text-orange-500 hover:text-orange-400 mt-2 font-medium">Edit Address</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Live Map Demo -->
+    <section class="py-20 bg-gray-900">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <h2 class="text-4xl font-bold mb-8 text-center">Real-Time <span class="text-orange-500">GPS Tracking</span></h2>
+            <p class="text-xl text-gray-400 text-center mb-12">Watch your driver approach in real-time</p>
+            
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                <div class="bg-gray-800 rounded-2xl p-8">
+                    <h3 class="text-2xl font-bold mb-6">How It Works</h3>
+                    <div class="space-y-6">
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 font-bold">1</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Restaurant Prepares</h4>
+                                <p class="text-gray-400">Your order is confirmed and the restaurant starts preparing your food</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 font-bold">2</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Driver Picks Up</h4>
+                                <p class="text-gray-400">A nearby driver accepts your order and heads to the restaurant</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 font-bold">3</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Live Tracking</h4>
+                                <p class="text-gray-400">Track your driver's location in real-time as they deliver your order</p>
+                            </div>
+                        </div>
+                        <div class="flex items-start gap-4">
+                            <div class="w-10 h-10 bg-orange-500 rounded-full flex items-center justify-center flex-shrink-0 font-bold">4</div>
+                            <div>
+                                <h4 class="font-bold text-lg">Delivery Complete</h4>
+                                <p class="text-gray-400">Your driver arrives and delivers your hot, fresh food</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="bg-gray-800 rounded-2xl p-8 h-96 flex items-center justify-center relative overflow-hidden">
+                    <div class="absolute inset-0 bg-gradient-to-br from-gray-800 to-gray-900"></div>
+                    <!-- Animated delivery visualization -->
+                    <div class="relative z-10 text-center">
+                        <div class="text-6xl mb-4 animate-bounce">🛵</div>
+                        <p class="text-gray-400">Interactive map visualization</p>
+                        <p class="text-sm text-gray-500 mt-2">See your driver move in real-time</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section -->
+    <section class="py-24 bg-gradient-to-r from-orange-600 to-orange-500">
+        <div class="max-w-4xl mx-auto text-center px-4">
+            <h2 class="text-5xl font-bold mb-6">Ready to Order?</h2>
+            <p class="text-xl mb-10 opacity-90">Experience the fastest food delivery with real-time tracking</p>
+            <a href="restaurants.html" class="inline-block bg-white text-orange-500 hover:bg-gray-100 px-12 py-5 rounded-full font-bold text-xl transition-all transform hover:scale-105 hover:shadow-lg">
+                Browse Restaurants
+            </a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-800 py-12 border-t border-gray-700">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-8">
+                <div>
+                    <h3 class="text-2xl font-bold text-orange-500 mb-4">SpeedEats</h3>
+                    <p class="text-gray-400">The fastest way to get your favorite food delivered.</p>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Company</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">About Us</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Careers</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Press</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Support</h4>
+                    <ul class="space-y-2 text-gray-400">
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Help Center</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Safety</a></li>
+                        <li><a href="#" class="hover:text-orange-500 transition-colors">Terms of Service</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="font-bold mb-4">Follow Us</h4>
+                    <div class="flex space-x-4">
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📘</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">📸</a>
+                        <a href="#" class="text-gray-400 hover:text-orange-500 transition-colors text-2xl">🐦</a>
+                    </div>
+                </div>
+            </div>
+            <div class="mt-8 pt-8 border-t border-gray-700 text-center text-gray-400">
+                <p>&copy; 2024 SpeedEats. All rights reserved.</p>
+            </div>
+        </div>
+    </footer>
+
+    <script src="main.js"></script>
+    <script>
+        initMapScene();
+    </script>
+</body>
+</html>
